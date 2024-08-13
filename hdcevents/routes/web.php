@@ -13,18 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use App\Http\Controllers\EvenController;
+
+Route::get('/', [EvenController::class, 'index']);
+Route::get('/events/create', [EvenController::class, 'create']);
+
+Route::get('/contact', function () {
+    return view('contact');
 });
 
-Route::get('/product', function () {
+Route::get('/produtos', function () {
 
     $busca = request('search');
 
-    return view('product', ['busca' => $busca] );
+    return view('products', ['busca' => $busca]);
 });
 
-
-Route::get('/produtos/{id}', function ($id) {
-    return view('produtos', ['id' => $id]);
+Route::get('/produtos_teste/{id?}', function ($id = null) {
+    return view('product', ['id' => $id]);
 });
