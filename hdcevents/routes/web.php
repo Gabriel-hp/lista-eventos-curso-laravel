@@ -17,18 +17,10 @@ use App\Http\Controllers\EvenController;
 
 Route::get('/', [EvenController::class, 'index']);
 Route::get('/events/create', [EvenController::class, 'create']);
+Route::get('/events/{id}', [EvenController::class, 'show']);
+route::post('/events', [EvenController::class, 'store']);
 
 Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/produtos', function () {
-
-    $busca = request('search');
-
-    return view('products', ['busca' => $busca]);
-});
-
-Route::get('/produtos_teste/{id?}', function ($id = null) {
-    return view('product', ['id' => $id]);
-});
