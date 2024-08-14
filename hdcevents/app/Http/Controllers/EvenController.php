@@ -26,9 +26,11 @@ class EvenController extends Controller
 
         $event->title = $request->title;
         $event->city = $request->city;
+        $event->date = $request->date;
         $event->private = $request->private;
         $event->description = $request->description;
         $event->items = $request->items;
+
 
         //image upload
         if($request->hasFile('image') && $request->file('image')->isValid()) {
