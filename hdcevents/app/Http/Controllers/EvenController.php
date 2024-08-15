@@ -63,8 +63,6 @@ class EvenController extends Controller
         $user = auth()->user();
         $event->user_id = $user->id;
 
-        $event->user_na = $user->name;
-
 
 
 

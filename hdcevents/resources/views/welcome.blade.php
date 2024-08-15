@@ -18,11 +18,7 @@
     <p class="subtitle">Veja os eventos dos próximos dias</p>
     @endif
 
-    @foreach ($events as $event)
-
-        <p href="/" class="nav-link">Olá {{$event->user->name}}, seja bem vindo</p>
-
-    @endforeach
+   
 
     
     <div id="cards-container" class="row">
