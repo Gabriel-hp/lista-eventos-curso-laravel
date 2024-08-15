@@ -83,4 +83,18 @@ class EvenController extends Controller
         return view('events.show', ['event' => $event,'eventOwner' => $eventOwner]);
         
     }
+    public function dashboard() {
+
+        $user = auth()->user();
+
+        $events = $user->events;
+
+        $eventsAsParticipant = $user->eventsAsParticipant;
+
+        return view('events.dashboard', 
+            ['events' => $events, 'eventsasparticipant' => $eventsAsParticipant]
+        );
+
+    }
+
 }

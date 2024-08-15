@@ -20,17 +20,10 @@ Route::get('/events/create', [EvenController::class, 'create']);
 Route::get('/events/{id}', [EvenController::class, 'show']);
 route::post('/events', [EvenController::class, 'store']);
 
+
 Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/dashboard', [EvenController::class, 'dashboard'])->middleware('auth');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
